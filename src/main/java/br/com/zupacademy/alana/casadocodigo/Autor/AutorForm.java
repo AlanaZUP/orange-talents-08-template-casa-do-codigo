@@ -21,7 +21,7 @@ public class AutorForm {
     private String descricao;
 
 
-    public AutorForm(String nome, String email, String descricao) {
+    public AutorForm(@NotEmpty String nome,@NotEmpty @Email String email,@NotEmpty @Length(max = 400) String descricao) {
         this.nome = nome;
         this.email = email;
         this.descricao = descricao;
