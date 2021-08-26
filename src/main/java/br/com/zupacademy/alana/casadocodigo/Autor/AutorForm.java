@@ -1,20 +1,16 @@
 package br.com.zupacademy.alana.casadocodigo.Autor;
 
+import br.com.zupacademy.alana.casadocodigo.Validators.AnotacoesPersonalizadas.EmailUnico;
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import java.time.LocalDateTime;
 
 public class AutorForm {
     @NotEmpty
     private String nome;
 
-    @NotEmpty @Email
+    @NotEmpty @Email @EmailUnico
     private String email;
 
     @NotEmpty @Length(max = 400)
