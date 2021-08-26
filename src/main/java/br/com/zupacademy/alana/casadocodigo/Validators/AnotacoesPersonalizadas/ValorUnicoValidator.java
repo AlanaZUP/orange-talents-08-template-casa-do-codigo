@@ -1,2 +1,32 @@
-package br.com.zupacademy.alana.casadocodigo.Validators.AnotacoesPersonalizadas;public class ValorUnicoValidator {
+package br.com.zupacademy.alana.casadocodigo.Validators.AnotacoesPersonalizadas;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+public class ValorUnicoValidator implements ConstraintValidator<ValorUnico, Object> {
+
+    @PersistenceContext
+    private EntityManager manager;
+
+    private String nomeCampo;
+    private Class<?> classe;
+
+    @Override
+    public void initialize(ValorUnico constraintAnnotation) {
+        nomeCampo = constraintAnnotation.nomeCampo();
+        classe = constraintAnnotation.classe();
+    }
+
+    @Override
+    public boolean isValid(Object value, ConstraintValidatorContext context) {
+        Query query = manager.createQuery("select 1 from "+ classe.getName() +" t where t."+ nomeCampo +"=:value");
+        query.setParameter("value", value);
+        if (query.getResultList().size() > 0){
+            return false;
+        }
+        return true;
+    }
 }
