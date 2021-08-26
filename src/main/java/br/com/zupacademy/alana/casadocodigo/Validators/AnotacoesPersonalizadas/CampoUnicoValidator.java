@@ -6,7 +6,7 @@ import javax.persistence.Query;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class ValorUnicoValidator implements ConstraintValidator<ValorUnico, Object> {
+public class CampoUnicoValidator implements ConstraintValidator<CampoUnico, Object> {
 
     @PersistenceContext
     private EntityManager manager;
@@ -15,10 +15,11 @@ public class ValorUnicoValidator implements ConstraintValidator<ValorUnico, Obje
     private Class<?> classe;
 
     @Override
-    public void initialize(ValorUnico constraintAnnotation) {
+    public void initialize(CampoUnico constraintAnnotation) {
         nomeCampo = constraintAnnotation.nomeCampo();
         classe = constraintAnnotation.classe();
     }
+
 
     @Override
     public boolean isValid(Object value, ConstraintValidatorContext context) {
