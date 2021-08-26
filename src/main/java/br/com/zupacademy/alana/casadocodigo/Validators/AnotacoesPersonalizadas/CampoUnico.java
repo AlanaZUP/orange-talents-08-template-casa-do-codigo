@@ -9,8 +9,8 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = ValorUnicoValidator.class)
-public @interface ValorUnico {
+@Constraint(validatedBy = CampoUnicoValidator.class)
+public @interface CampoUnico {
     Class<?>[] groups() default { };
     Class<? extends Payload>[] payload() default { };
     String nomeCampo();
