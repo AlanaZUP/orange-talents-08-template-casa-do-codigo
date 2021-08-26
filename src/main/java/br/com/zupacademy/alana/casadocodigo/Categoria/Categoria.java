@@ -1,7 +1,5 @@
 package br.com.zupacademy.alana.casadocodigo.Categoria;
 
-import br.com.zupacademy.alana.casadocodigo.Validators.AnotacoesPersonalizadas.ValorUnico;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

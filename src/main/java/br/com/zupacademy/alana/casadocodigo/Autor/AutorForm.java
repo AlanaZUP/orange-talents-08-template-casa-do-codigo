@@ -1,7 +1,6 @@
 package br.com.zupacademy.alana.casadocodigo.Autor;
 
-import br.com.zupacademy.alana.casadocodigo.Validators.AnotacoesPersonalizadas.EmailUnico;
-import br.com.zupacademy.alana.casadocodigo.Validators.AnotacoesPersonalizadas.ValorUnico;
+import br.com.zupacademy.alana.casadocodigo.Validators.AnotacoesPersonalizadas.CampoUnico;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
@@ -11,7 +10,7 @@ public class AutorForm {
     @NotEmpty
     private String nome;
 
-    @NotEmpty @Email @ValorUnico(nomeCampo = "email", classe = Autor.class)
+    @NotEmpty @Email @CampoUnico(nomeCampo = "email", classe = Autor.class)
     private String email;
 
     @NotEmpty @Length(max = 400)
