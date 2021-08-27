@@ -3,7 +3,10 @@ package br.com.zupacademy.alana.casadocodigo.Livro;
 import br.com.zupacademy.alana.casadocodigo.Autor.Autor;
 import br.com.zupacademy.alana.casadocodigo.Categoria.Categoria;
 import br.com.zupacademy.alana.casadocodigo.Validators.AnotacoesPersonalizadas.CampoUnico;
+import br.com.zupacademy.alana.casadocodigo.Validators.AnotacoesPersonalizadas.ExistisId;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -11,13 +14,8 @@ import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Entity
-public class Livro {
-
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @NotEmpty
+public class LivroForm {
+    @NotEmpty @CampoUnico(nomeCampo = "titulo", classe = Livro.class)
     private String titulo;
 
     @NotEmpty @Length(max = 500)
@@ -32,19 +30,31 @@ public class Livro {
     @NotNull @Min(100)
     private int numeroPaginas;
 
-    @NotEmpty
+    @NotEmpty @CampoUnico(nomeCampo = "isbn", classe = Livro.class)
     private String isbn;
 
-    @Future
+    @NotNull @Future @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataPublicacao;
 
-    @NotNull @ManyToOne
-    private Categoria categoria;
+    @NotNull @ExistisId(classe = Autor.class)
+    private Long idAutor;
 
-    @NotNull @ManyToOne
-    private Autor autor;
+    @NotNull @ExistisId(classe = Categoria.class)
+    private Long idCategoria;
 
-    public Livro(@NotEmpty String titulo, @NotEmpty @Length(max = 500) String resumo, @NotEmpty String sumario, @NotNull @DecimalMin(value = "20.0") BigDecimal preco, @NotNull @Min(100) int numeroPaginas, @NotEmpty String isbn, @Future LocalDate dataPublicacao, @NotNull @Valid Categoria categoria, @NotNull @Valid Autor autor) {
+    /**
+     * @param titulo o titulo do livro deve ser uma String
+     * @param resumo o resumo do livro deve ser uma String de até 500 caracteres
+     * @param sumario o sumario do livro
+     * @param preco o preco do livro, deve ser acima de 20.0
+     * @param numeroPaginas o número de páginas do livro deve ser acima de 100
+     * @param resumo o resumo do livro deve ser uma String de até 500 caracteres
+     * @param isbn o isbn é o identificador do livro
+     * @param dataPublicacao a data de publicação do livro deve ser futura
+     * @param idAutor representa a identificação do autor do livro
+     * @param idCategoria representa a identificação da categoria que o livro pertence
+     * */
+    public LivroForm(@NotEmpty String titulo, @NotEmpty @Length(max = 500) String resumo, @NotEmpty String sumario, @NotNull @DecimalMin(value = "20.0") BigDecimal preco, @NotNull @Min(100) int numeroPaginas, @NotEmpty String isbn,@NotNull @Future @JsonFormat(pattern = "yyyy-MM-dd") LocalDate dataPublicacao, @NotNull Long idCategoria, @NotNull Long idAutor) {
         this.titulo = titulo;
         this.resumo = resumo;
         this.sumario = sumario;
@@ -52,47 +62,14 @@ public class Livro {
         this.numeroPaginas = numeroPaginas;
         this.isbn = isbn;
         this.dataPublicacao = dataPublicacao;
-        this.categoria = categoria;
-        this.autor = autor;
+        this.idAutor = idAutor;
+        this.idCategoria = idCategoria;
     }
 
-    public Long getId() {
-        return id;
+    public Livro converterParaLivro(EntityManager manager){
+        Autor autor = manager.find(Autor.class, idAutor);
+        Categoria categoria = manager.find(Categoria.class, idCategoria);
+        return new Livro(titulo, resumo, sumario, preco, numeroPaginas, isbn, dataPublicacao, categoria, autor);
     }
 
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public String getResumo() {
-        return resumo;
-    }
-
-    public String getSumario() {
-        return sumario;
-    }
-
-    public BigDecimal getPreco() {
-        return preco;
-    }
-
-    public int getNumeroPaginas() {
-        return numeroPaginas;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public LocalDate getDataPublicacao() {
-        return dataPublicacao;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public Autor getAutor() {
-        return autor;
-    }
 }
