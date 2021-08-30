@@ -1,4 +1,4 @@
-package br.com.zupacademy.alana.casadocodigo.Validators.Exceptions;
+package br.com.zupacademy.alana.casadocodigo.validators.Exceptions;
 
 public class ErroFormDTO {
     private String campo;

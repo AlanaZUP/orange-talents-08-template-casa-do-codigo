@@ -1,4 +1,4 @@
-package br.com.zupacademy.alana.casadocodigo.Validators.AnotacoesPersonalizadas;
+package br.com.zupacademy.alana.casadocodigo.validators.AnotacoesPersonalizadas;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

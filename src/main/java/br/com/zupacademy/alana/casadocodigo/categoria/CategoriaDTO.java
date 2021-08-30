@@ -1,9 +1,4 @@
-package br.com.zupacademy.alana.casadocodigo.Categoria;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
+package br.com.zupacademy.alana.casadocodigo.categoria;
 
 public class CategoriaDTO {
 

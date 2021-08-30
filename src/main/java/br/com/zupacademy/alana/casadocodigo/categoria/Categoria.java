@@ -1,4 +1,4 @@
-package br.com.zupacademy.alana.casadocodigo.Categoria;
+package br.com.zupacademy.alana.casadocodigo.categoria;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

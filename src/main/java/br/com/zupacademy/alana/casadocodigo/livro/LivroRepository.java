@@ -1,4 +1,4 @@
-package br.com.zupacademy.alana.casadocodigo.Livro;
+package br.com.zupacademy.alana.casadocodigo.livro;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

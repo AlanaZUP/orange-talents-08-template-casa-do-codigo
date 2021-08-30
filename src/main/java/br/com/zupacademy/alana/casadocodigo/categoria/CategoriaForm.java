@@ -1,6 +1,6 @@
-package br.com.zupacademy.alana.casadocodigo.Categoria;
+package br.com.zupacademy.alana.casadocodigo.categoria;
 
-import br.com.zupacademy.alana.casadocodigo.Validators.AnotacoesPersonalizadas.CampoUnico;
+import br.com.zupacademy.alana.casadocodigo.validators.AnotacoesPersonalizadas.CampoUnico;
 
 import javax.validation.constraints.NotEmpty;
 

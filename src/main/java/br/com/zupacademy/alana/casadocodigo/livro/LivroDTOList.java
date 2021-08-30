@@ -1,10 +1,4 @@
-package br.com.zupacademy.alana.casadocodigo.Livro;
-
-import br.com.zupacademy.alana.casadocodigo.Autor.Autor;
-import br.com.zupacademy.alana.casadocodigo.Categoria.Categoria;
-
-import java.math.BigDecimal;
-import java.time.LocalDate;
+package br.com.zupacademy.alana.casadocodigo.livro;
 
 public class LivroDTOList {
 

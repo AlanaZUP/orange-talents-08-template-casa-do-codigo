@@ -1,4 +1,4 @@
-package br.com.zupacademy.alana.casadocodigo.Categoria;
+package br.com.zupacademy.alana.casadocodigo.categoria;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,12 +1,8 @@
-package br.com.zupacademy.alana.casadocodigo.Livro;
+package br.com.zupacademy.alana.casadocodigo.livro;
 
-import br.com.zupacademy.alana.casadocodigo.Autor.Autor;
-import br.com.zupacademy.alana.casadocodigo.Categoria.Categoria;
-import org.hibernate.validator.constraints.Length;
+import br.com.zupacademy.alana.casadocodigo.autor.Autor;
+import br.com.zupacademy.alana.casadocodigo.categoria.Categoria;
 
-import javax.persistence.*;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 

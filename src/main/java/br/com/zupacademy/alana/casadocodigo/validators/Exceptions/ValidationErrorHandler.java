@@ -1,4 +1,4 @@
-package br.com.zupacademy.alana.casadocodigo.Validators.Exceptions;
+package br.com.zupacademy.alana.casadocodigo.validators.Exceptions;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;

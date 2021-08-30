@@ -1,11 +1,9 @@
-package br.com.zupacademy.alana.casadocodigo.Livro;
+package br.com.zupacademy.alana.casadocodigo.livro;
 
-import br.com.zupacademy.alana.casadocodigo.Autor.Autor;
-import br.com.zupacademy.alana.casadocodigo.Categoria.Categoria;
-import br.com.zupacademy.alana.casadocodigo.Validators.AnotacoesPersonalizadas.CampoUnico;
+import br.com.zupacademy.alana.casadocodigo.autor.Autor;
+import br.com.zupacademy.alana.casadocodigo.categoria.Categoria;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.Length;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.Valid;

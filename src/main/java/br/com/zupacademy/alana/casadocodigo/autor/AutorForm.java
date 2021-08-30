@@ -1,6 +1,6 @@
-package br.com.zupacademy.alana.casadocodigo.Autor;
+package br.com.zupacademy.alana.casadocodigo.autor;
 
-import br.com.zupacademy.alana.casadocodigo.Validators.AnotacoesPersonalizadas.CampoUnico;
+import br.com.zupacademy.alana.casadocodigo.validators.AnotacoesPersonalizadas.CampoUnico;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
