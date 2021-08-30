@@ -1,6 +1,5 @@
 package br.com.zupacademy.alana.casadocodigo.estado;
 
-import br.com.zupacademy.alana.casadocodigo.estadoTeste.Estado;
 import br.com.zupacademy.alana.casadocodigo.paises.Pais;
 
 public class EstadoResponse {
