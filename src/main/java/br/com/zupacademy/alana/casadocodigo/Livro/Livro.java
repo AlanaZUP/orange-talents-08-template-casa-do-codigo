@@ -46,6 +46,10 @@ public class Livro {
     @NotNull @ManyToOne
     private Autor autor;
 
+    @Deprecated
+    public Livro() {
+    }
+
     /**
      * @param titulo o titulo do livro deve ser uma String
      * @param resumo o resumo do livro deve ser uma String de até 500 caracteres
@@ -58,6 +62,8 @@ public class Livro {
      * @param autor representa o autor do livro
      * @param categoria representa a categoria que o livro pertence
      * */
+
+
     public Livro(@NotEmpty String titulo, @NotEmpty @Length(max = 500) String resumo, @NotEmpty String sumario, @NotNull @DecimalMin(value = "20.0") BigDecimal preco, @NotNull @Min(100) int numeroPaginas, @NotEmpty String isbn,@NotNull @Future @JsonFormat(pattern = "yyyy-MM-dd") LocalDate dataPublicacao, @NotNull @Valid Categoria categoria, @NotNull @Valid Autor autor) {
         this.titulo = titulo;
         this.resumo = resumo;

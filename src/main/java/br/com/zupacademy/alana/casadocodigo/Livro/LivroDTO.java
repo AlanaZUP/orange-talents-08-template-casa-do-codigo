@@ -24,6 +24,7 @@ public class LivroDTO {
     private Autor autor;
 
     public LivroDTO(Livro livro) {
+        this.id = livro.getId();
         this.titulo = livro.getTitulo();
         this.resumo = livro.getResumo();
         this.sumario = livro.getSumario();
