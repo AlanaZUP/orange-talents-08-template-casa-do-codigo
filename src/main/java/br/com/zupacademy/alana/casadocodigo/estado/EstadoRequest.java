@@ -1,6 +1,5 @@
 package br.com.zupacademy.alana.casadocodigo.estado;
 
-import br.com.zupacademy.alana.casadocodigo.estadoTeste.Estado;
 import br.com.zupacademy.alana.casadocodigo.paises.Pais;
 import br.com.zupacademy.alana.casadocodigo.paises.PaisRepository;
 import br.com.zupacademy.alana.casadocodigo.validators.AnotacoesPersonalizadas.ExistisId;
@@ -25,7 +24,7 @@ public class EstadoRequest {
         return idPais;
     }
 
-    public br.com.zupacademy.alana.casadocodigo.estadoTeste.Estado toModel(PaisRepository paisRepository){
+    public Estado toModel(PaisRepository paisRepository){
         Pais pais = paisRepository.findById(idPais).get();
         return new Estado(nome, pais);
     }
