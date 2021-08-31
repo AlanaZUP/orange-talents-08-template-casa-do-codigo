@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface EstadoRepository extends JpaRepository<Estado, Long> {
     public List<Estado> findByNomeAndPais(String nome, Pais pais);
+
+    public List<Estado> findByPais_Id(Long id);
 }
